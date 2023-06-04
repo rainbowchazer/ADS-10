@@ -12,18 +12,18 @@ struct Node {
 };
 class Tree {
 private:
-    std::vector<std::vector<char>> p;
-	Node* root;
-    void addNode(Node* root, const std::vector<char>& symbols) {
-        for (char ch : symbols) {
-            Node* tmp = new Node(ch);
-            tmp->c = ch;
-            root->vector.push_back(tmp);
-            std::vector<char> remainch(symbols);
-            remainch.erase(std::find(remainch.begin(), remainch.end(), ch));
-            addNode(tmp, remainch);
-        }
+  std::vector<std::vector<char>> p;
+Node* root;
+  void addNode(Node * root, const std::vector<char>&symbols) {
+    for (char ch : symbols) {
+      Node* tmp = new Node;
+      tmp->c = ch;
+      root->nodes.push_back(tmp);
+      std::vector<char> remainch(symbols);
+      remainch.erase(std::find(remainch.begin(), remainch.end(), ch));
+      addNode(tmp, remainch);
     }
+  }
     void getPermut(Node * root, std::vector<char> symbols) {
     if (!root->exam)
       symbols.push_back(root->c);
