@@ -9,8 +9,7 @@ std::vector<char> getPerm(const Tree& tree, int n) {
   std::vector<std::vector<char>> p = tree.getPermutations();
     if (p.size() >= n) {
         return p[n - 1];
-    }
-    else {
-        return {};
+    } else {
+      return {};
     }
 }
