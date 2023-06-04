@@ -38,7 +38,7 @@ private:
 
 public:
     explicit Tree(const std::vector<char>& symb) {
-        root = new Node('/0');
+        root = new Node('\0');
         addNode(root, symb);
         std::vector<char> cur;
         getPermut(root, cur);
