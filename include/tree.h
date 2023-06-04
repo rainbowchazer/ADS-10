@@ -5,9 +5,9 @@
 #include <vector>
 #include <algorithm>
 struct Node {
-	bool exam = false;
-	char c;
-	std::vector<Node*> vector;
+  bool exam = false;
+  char c;
+  std::vector<Node*> vector;
 };
 class Tree {
  private:
