@@ -10,9 +10,9 @@ struct Node {
 	std::vector<Node*> vector;
 };
 class Tree {
-private:
+ private:
   std::vector<std::vector<char>> p;
-Node* root;
+  Node* root;
   void addNode(Node * root, const std::vector<char>&symbols) {
     for (char ch : symbols) {
       Node* tmp = new Node;
@@ -23,7 +23,7 @@ Node* root;
       addNode(tmp, remainch);
     }
   }
-    void getPermut(Node * root, std::vector<char> symbols) {
+  void getPermut(Node * root, std::vector<char> symbols) {
     if (!root->exam)
       symbols.push_back(root->c);
     if (root->vector.empty()) {
@@ -35,13 +35,13 @@ Node* root;
     }
   }
 
-public:
-    explicit Tree(const std::vector<char>& symb) {
-        root = new Node;
+ public:
+  explicit Tree(const std::vector<char>& symb) {
+    root = new Node;
     root->exam = true;
     addNode(root, symb);
     std::vector<char> current;
-   getPermut(root, current);
+    getPermut(root, current);
   }
   std::vector<std::vector<char>> getPermutations() const {
     return p;
