@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 struct Node {
+	bool exam = false;
 	char c;
 	std::vector<Node*> vector;
     explicit Node(char ch) : c(ch) {}
@@ -23,28 +24,28 @@ private:
             addNode(tmp, remainch);
         }
     }
-    void getPermut(Node* root, std::vector<char> symbols) {
-        if (root->vector.empty())
-            symbols.push_back(root->c);
-        if (root->vector.empty()) {
-            p.push_back(symbols);
-        }
-        else {
-            for (Node* child : root->vector) {
-                getPermut(child, symbols);
-            }
-        }
+    void getPermut(Node * root, std::vector<char> symbols) {
+    if (!root->exam)
+      symbols.push_back(root->c);
+    if (root->vector.empty()) {
+      p.push_back(symbols);
+    } else {
+      for (Node* son : root->vector) {
+        getPermut(son, symbols);
+      }
     }
+  }
 
 public:
     explicit Tree(const std::vector<char>& symb) {
-        root = new Node('\0');
-        addNode(root, symb);
-        std::vector<char> cur;
-        getPermut(root, cur);
-    }
-    std::vector<std::vector<char>> getPermutations() const {
-        return p;
-    }
+        root = new Node;
+    root->exam = true;
+    addNode(root, symb);
+    std::vector<char> current;
+   getPermut(root, current);
+  }
+  std::vector<std::vector<char>> getPermutations() const {
+    return p;
+  }
 };
 #endif  // INCLUDE_TREE_H_
