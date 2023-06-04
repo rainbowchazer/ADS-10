@@ -8,7 +8,6 @@ struct Node {
 	bool exam = false;
 	char c;
 	std::vector<Node*> vector;
-    explicit Node(char ch) : c(ch) {}
 };
 class Tree {
 private:
@@ -18,7 +17,7 @@ Node* root;
     for (char ch : symbols) {
       Node* tmp = new Node;
       tmp->c = ch;
-      root->nodes.push_back(tmp);
+      root->vector.push_back(tmp);
       std::vector<char> remainch(symbols);
       remainch.erase(std::find(remainch.begin(), remainch.end(), ch));
       addNode(tmp, remainch);
